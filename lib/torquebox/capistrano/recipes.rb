@@ -30,7 +30,7 @@ module Capistrano
 
           before "deploy:update_code", "deploy:torquebox:knob:prepare"
           before "deploy:finalize_update", "deploy:torquebox:knob:distribute"
-          after  "deploy:torquebox:knob:distribute", 'deploy:migrate'
+          after  "deploy:update", "deploy:migrate"
         end
       end
     end
