@@ -14,7 +14,9 @@ gem install torquebox-knob-capistrano-support
 or append project Gemfile with
 
 ```ruby
-gem 'torquebox-knob-capistrano-support'
+gem 'torquebox-knob-capistrano-support',
+  :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
+  :tag => "#{Capistrano::Torquebox::Knob::Support.version}"
 ```
 
 #Usage
