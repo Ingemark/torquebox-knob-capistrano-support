@@ -16,7 +16,7 @@ or append project Gemfile with
 ```ruby
 gem 'torquebox-knob-capistrano-support',
   :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
-  :tag => "#{Capistrano::Torquebox::Knob::Support.version}"
+  :tag => "0.1.0"
 ```
 
 #Usage
