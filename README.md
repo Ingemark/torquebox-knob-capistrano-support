@@ -11,7 +11,7 @@ Install gem
 ```shell
 gem install torquebox-knob-capistrano-support
 ```
-or append project Gemfile
+or append project Gemfile with
 
 ```ruby
 gem 'torquebox-knob-capistrano-support'
@@ -20,8 +20,10 @@ gem 'torquebox-knob-capistrano-support'
 #Usage
 Set your variables as follows:
 ```ruby
-set :archive_name,  "<knob-name>.knob"
-set :archive_url,   "http://<distribution-host>/<path-to-knob-file>"
+set :archive_name,    "<knob-name>.knob"
+set :archive_url,     "http://<distribution-host>/<path-to-knob-file>"
+set :torquebox_home,  "<remote-host-torquebox-dir>"
+set :app_context,     "<context-path>"
 ```
 and
 
