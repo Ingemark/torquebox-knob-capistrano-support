@@ -7,11 +7,7 @@
 knob file using [wget](http://www.gnu.org/software/wget/) from distribution server to remote machines.
 
 ## Instalations
-Install gem
-```shell
-gem install torquebox-knob-capistrano-support
-```
-or append project Gemfile with
+Add gem to project Gemfile
 
 ```ruby
 gem 'torquebox-knob-capistrano-support',
