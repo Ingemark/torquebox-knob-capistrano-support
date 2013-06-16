@@ -17,7 +17,7 @@ if Capistrano::Configuration.instance
             run "wget -q -O #{release_path}/#{archive_name} #{archive_url}"
           end
           task :unjar do
-            run "cd #{release_path} && jar -xf ./#{archive_name} && rm #{archive_name}"
+            run "cd #{release_path} && jar -xf ./#{archive_name} && rm #{archive_name} && chmod -R +x vendor/bundle"
           end
           task :distribute do
             copy
@@ -34,9 +34,8 @@ if Capistrano::Configuration.instance
       before "deploy:update_code",      "deploy:torquebox:knob:prepare"
       before "deploy:finalize_update",  "deploy:torquebox:knob:distribute"
       after  "deploy:update",           "deploy:migrate"
-
-      after  'deploy:create_symlink',    'deploy:torquebox:knob:deploy'
-      after  'deploy:rollback:revision', 'deploy:torquebox:knob:deploy'
+      after  'deploy:create_symlink',   'deploy:torquebox:knob:deploy'
+      after  'deploy:rollback:revision','deploy:torquebox:knob:deploy'
     end
   end
 end
