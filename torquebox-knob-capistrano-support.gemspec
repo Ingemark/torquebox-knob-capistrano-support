@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.files             = Dir['lib/**/*', 'README.md']
 
   s.add_dependency 'capistrano-deploy-scm-passthrough', '~> 0.1.1'
+  s.add_dependency 'torquebox-capistrano-support',      '~> 2.3.2'
 end

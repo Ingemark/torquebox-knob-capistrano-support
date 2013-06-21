@@ -1,1 +1,1 @@
-require 'torquebox/capistrano/recipes'
+require 'torquebox/capistrano/recipes/knob'
