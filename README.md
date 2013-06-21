@@ -12,7 +12,7 @@ Add gem to project Gemfile
 ```ruby
 gem 'torquebox-knob-capistrano-support',
   :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
-  :tag => "0.1.3"
+  :tag => "0.1.4"
 ```
 
 #Usage
@@ -21,7 +21,6 @@ Set your variables as follows:
 set :archive_name,    "<knob-name>.knob"
 set :archive_url,     "http://<distribution-host>/<path-to-knob-file>"
 set :torquebox_home,  "<remote-host-torquebox-dir>"
-set :app_context,     "<context-path>"
 ```
 and
 
