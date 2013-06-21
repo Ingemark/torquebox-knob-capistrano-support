@@ -19,6 +19,7 @@ module Capistrano
               task :env do
                 default_environment["TORQUEBOX_HOME"] = torquebox_home
                 default_environment["JBOSS_HOME"] = jboss_home
+                default_environment["JRUBY_OPTS"] = jruby_opts if jruby_opts
                 default_environment["JRUBY_HOME"] = jruby_home
                 default_environment["PATH"] = "#{jruby_home}/bin:$PATH"
               end
@@ -36,12 +37,7 @@ module Capistrano
                 unjar
               end
               task :deploy do
-                execute = [" cd #{current_path} "]
-                #deploy  = " PATH=#{jruby_home}/bin:#{jboss_home}/bin:$PATH "
-                #deploy += " JBOSS_HOME=#{jboss_home} JRUBY_HOME=#{jruby_home} "
-                deploy = " torquebox deploy . --env=#{rails_env} --name=#{application} "
-                execute << deploy
-                run execute.join("&&")
+                run "cd #{current_path} && torquebox deploy . --env=#{rails_env} --name=#{application}"
               end
             end
           end
