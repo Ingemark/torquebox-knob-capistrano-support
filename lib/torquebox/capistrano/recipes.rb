@@ -19,7 +19,7 @@ module Capistrano
               task :env do
                 default_environment["TORQUEBOX_HOME"] = torquebox_home
                 default_environment["JBOSS_HOME"] = jboss_home
-                default_environment["JRUBY_OPTS"] = jruby_opts if jruby_opts
+                default_environment["JRUBY_OPTS"] = jruby_opts if exists?(:jruby_opts)
                 default_environment["JRUBY_HOME"] = jruby_home
                 default_environment["PATH"] = "#{jruby_home}/bin:$PATH"
               end
