@@ -12,17 +12,21 @@ module Capistrano
           namespace :torquebox do
             namespace :knob do
               task :prepare do
-                run "mkdir -p #{release_path}"
+                run "mkdir -p #{release_path} -m 2775"
               end
               task :copy do
                 run "wget -q -O #{release_path}/#{archive_name} #{archive_url}"
               end
               task :unjar do
-                run "cd #{release_path} && jar -xf ./#{archive_name} && rm #{archive_name} && chmod -R +x vendor/bundle"
+                run "cd #{release_path} && jar -xf ./#{archive_name} && rm #{archive_name} && chmod -R  +x vendor/bundle"
               end
               task :distribute do
                 copy
                 unjar
+              end
+              task :fix_group do
+                grp = "#{sudo_group || user}"
+                run "chgrp -R #{grp} #{release_path} && chgrp -R #{grp} #{current_path}"
               end
             end
           end
@@ -30,7 +34,8 @@ module Capistrano
 
         before "deploy:update_code",      "deploy:torquebox:knob:prepare"
         before "deploy:finalize_update",  "deploy:torquebox:knob:distribute"
-        after  "deploy:update",           "deploy:migrate"
+        
+        after  "deploy", "deploy:torquebox:knob:fix_group"
       end
     end
   end

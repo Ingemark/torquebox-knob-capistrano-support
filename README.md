@@ -12,7 +12,7 @@ Add gem to project Gemfile
 ```ruby
 gem 'torquebox-knob-capistrano-support',
   :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
-  :tag => "0.2.0"
+  :tag => "0.2.1"
 ```
 
 #Usage
