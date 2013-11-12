@@ -7,7 +7,7 @@ module Capistrano
     def create_deployment_descriptor( root )
       dd = create_deployment_descriptor_orig( root )
       if ( exists?( :pooling ) )
-        dd['polling'] = pooling
+        dd['pooling'] = pooling
       end
       dd
     end
