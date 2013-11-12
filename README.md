@@ -12,7 +12,7 @@ Add gem to project Gemfile
 ```ruby
 gem 'torquebox-knob-capistrano-support',
   :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
-  :tag => "0.2.1"
+  :tag => "0.2.2"
 ```
 
 #Usage
@@ -23,6 +23,7 @@ set :archive_url,     "http://<distribution-host>/<path-to-knob-file>"
 set :torquebox_home,  "<remote-host-torquebox-dir>"
 set :app_host,        "<jboss-virtual-host>"
 set :app_context,     "<context>"
+set :pooling,         { 'jobs' => { 'min' => 3, 'max' => 10 } } # Optional
 ```
 and
 

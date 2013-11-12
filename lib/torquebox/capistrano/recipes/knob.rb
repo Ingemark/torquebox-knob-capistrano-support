@@ -1,6 +1,18 @@
 require 'torquebox-capistrano-support'
 
 module Capistrano
+  Configuration.class_eval do
+    alias_method :create_deployment_descriptor_orig, :create_deployment_descriptor
+
+    def create_deployment_descriptor( root )
+      dd = create_deployment_descriptor_orig( root )
+      if ( exists?( :pooling ) )
+        dd['polling'] = pooling
+      end
+      dd
+    end
+  end
+
   module TorqueBox
     def self.load_into(configuration)
       configuration.load do
@@ -34,7 +46,7 @@ module Capistrano
 
         before "deploy:update_code",      "deploy:torquebox:knob:prepare"
         before "deploy:finalize_update",  "deploy:torquebox:knob:distribute"
-        
+
         after  "deploy", "deploy:torquebox:knob:fix_group"
       end
     end
