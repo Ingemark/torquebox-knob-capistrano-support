@@ -1,3 +1,4 @@
+# coding: utf-8
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = "torquebox-knob-capistrano-support"
@@ -6,7 +7,7 @@ Gem::Specification.new do |s|
   s.description       = "Capistrano deploy strategy that transferes knob file from distribution
                          server to remote machines."
 
-  s.homepage          = "http://github.com/Inge-mark/torquebox-knob-capistrano-support"
+  s.homepage          = "https://github.com/Ingemark/torquebox-knob-capistrano-support"
   s.email             = "zeljko.juric@inge-mark.hr"
   s.authors           = [ "Željko Jurić" ]
   s.has_rdoc          = false

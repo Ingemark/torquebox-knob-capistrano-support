@@ -11,7 +11,7 @@ Add gem to project Gemfile
 
 ```ruby
 gem 'torquebox-knob-capistrano-support',
-  :git => 'git://github.com/Inge-mark/torquebox-knob-capistrano-support.git',
+  :git => 'https://github.com/Ingemark/torquebox-knob-capistrano-support.git',
   :tag => "0.2.3"
 ```
 
